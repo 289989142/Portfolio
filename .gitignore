@@ -1,0 +1,7 @@
+.idea/
+target/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+*.iml
+*.log
