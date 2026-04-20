@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class FileStorageProperties {
 
     /**
-     * 本地上传根目录，例如 D:/uploads/ 或 /var/www/uploads/
+     * 本地上传根目录，支持相对路径，例如 ./uploads/
      */
     private String uploadPath;
 
