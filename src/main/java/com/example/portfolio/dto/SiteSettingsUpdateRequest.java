@@ -7,8 +7,10 @@ public class SiteSettingsUpdateRequest {
 
     private String adminPassword;
     private String bioContent;
+    private String avatarUrl;
     private String resumeUrl;
     private String phone;
+    private String wechatAccount;
     private String wechatQrUrl;
     private String bgImageUrl;
     private String bgMusicUrl;

@@ -16,9 +16,13 @@ public class SiteSettings {
 
     private String bioContent;
 
+    private String avatarUrl;
+
     private String resumeUrl;
 
     private String phone;
+
+    private String wechatAccount;
 
     private String wechatQrUrl;
 

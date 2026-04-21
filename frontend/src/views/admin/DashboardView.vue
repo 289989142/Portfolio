@@ -28,9 +28,10 @@ const itemSaving = ref(false)
 const settingsForm = reactive({
   adminPassword: '',
   bioContent: '',
+  avatarUrl: '',
   resumeUrl: '',
   phone: '',
-  wechatQrUrl: '',
+  wechatAccount: '',
   bgImageUrl: '',
   bgMusicUrl: ''
 })
@@ -62,9 +63,10 @@ async function loadSettings() {
   Object.assign(settingsForm, {
     adminPassword: '',
     bioContent: data?.bioContent || '',
+    avatarUrl: data?.avatarUrl || '',
     resumeUrl: data?.resumeUrl || '',
     phone: data?.phone || '',
-    wechatQrUrl: data?.wechatQrUrl || '',
+    wechatAccount: data?.wechatAccount || '',
     bgImageUrl: data?.bgImageUrl || '',
     bgMusicUrl: data?.bgMusicUrl || ''
   })
@@ -250,21 +252,24 @@ onMounted(loadAll)
               <el-form-item label="个人简介">
                 <el-input v-model="settingsForm.bioContent" type="textarea" :rows="5" placeholder="站点简介" />
               </el-form-item>
+              <el-form-item label="头像">
+                <FileUploadField
+                  v-model="settingsForm.avatarUrl"
+                  label="头像"
+                  tip="上传个人头像，首页左侧会展示"
+                  accept="image/*"
+                  preview-type="image"
+                  button-text="上传头像"
+                />
+              </el-form-item>
               <el-form-item label="联系电话">
                 <el-input v-model="settingsForm.phone" placeholder="手机号或其他联系方式" />
               </el-form-item>
               <el-form-item label="简历地址">
                 <el-input v-model="settingsForm.resumeUrl" placeholder="简历文件或网页地址" />
               </el-form-item>
-              <el-form-item label="微信二维码">
-                <FileUploadField
-                  v-model="settingsForm.wechatQrUrl"
-                  label="微信二维码"
-                  tip="上传后会返回可访问的图片地址"
-                  accept="image/*"
-                  preview-type="image"
-                  button-text="上传二维码"
-                />
+              <el-form-item label="微信号">
+                <el-input v-model="settingsForm.wechatAccount" placeholder="例如：your_wechat_id" />
               </el-form-item>
               <el-form-item label="背景图">
                 <FileUploadField

@@ -39,8 +39,10 @@ public class SiteSettingsServiceImpl extends ServiceImpl<SiteSettingsMapper, Sit
             target.setAdminPassword(source.getAdminPassword());
         }
         target.setBioContent(source.getBioContent());
+        target.setAvatarUrl(source.getAvatarUrl());
         target.setResumeUrl(source.getResumeUrl());
         target.setPhone(source.getPhone());
+        target.setWechatAccount(source.getWechatAccount());
         target.setWechatQrUrl(source.getWechatQrUrl());
         target.setBgImageUrl(source.getBgImageUrl());
         target.setBgMusicUrl(source.getBgMusicUrl());

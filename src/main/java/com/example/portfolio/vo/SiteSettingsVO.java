@@ -7,8 +7,10 @@ public class SiteSettingsVO {
 
     private Long id;
     private String bioContent;
+    private String avatarUrl;
     private String resumeUrl;
     private String phone;
+    private String wechatAccount;
     private String wechatQrUrl;
     private String bgImageUrl;
     private String bgMusicUrl;

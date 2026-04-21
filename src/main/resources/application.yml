@@ -7,14 +7,17 @@ spring:
       schema-locations: classpath:schema.sql
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/portfolio?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_NAME:portfolio}?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8&allowPublicKeyRetrieval=true
     username: ${DB_USERNAME:portfolio}
     password: ${DB_PASSWORD:Portfolio@123456}
 
+server:
+  port: ${SERVER_PORT:8080}
+
 app:
-  upload-path: ./uploads/
-  upload-url-prefix: /uploads
-  upload-date-subdir: true
+  upload-path: ${APP_UPLOAD_PATH:./uploads/}
+  upload-url-prefix: ${APP_UPLOAD_URL_PREFIX:/uploads}
+  upload-date-subdir: ${APP_UPLOAD_DATE_SUBDIR:true}
 
 mybatis-plus:
   configuration:

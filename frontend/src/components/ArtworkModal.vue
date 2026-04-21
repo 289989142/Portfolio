@@ -38,44 +38,47 @@ onBeforeUnmount(() => {
     <Transition name="fade">
       <div
         v-if="show"
-        class="fixed inset-0 z-[60] flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-md"
+        class="fixed inset-0 z-[60] flex items-center justify-center bg-[#241a12]/78 p-4 backdrop-blur-xl"
         @click.self="close"
       >
         <Transition name="zoom" appear>
           <div
-            class="w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-slate-950/90 shadow-glow"
+            class="w-full overflow-hidden rounded-[2rem] border border-white/20 bg-[#f5ebde]/96 text-[#2d2419] shadow-[0_35px_90px_rgba(24,16,10,0.35)]"
+            style="max-width: min(92vw, 980px)"
           >
-            <div class="flex items-center justify-between border-b border-white/10 px-4 py-3">
+            <div class="flex items-center justify-between border-b border-[#cdbca5] px-5 py-4">
               <div>
-                <p class="text-sm text-slate-400">作品详情</p>
-                <h3 class="text-base font-semibold text-white">
-                  {{ item?.description ? '作品预览' : '作品展示' }}
+                <h3 class="text-base font-semibold text-[#2d2419]">
+                  作品预览
                 </h3>
               </div>
               <button
-                class="rounded-xl bg-white/10 px-3 py-2 text-xs font-medium text-white transition hover:bg-white/15"
+                class="rounded-full border border-[#bca88e] bg-white/60 px-4 py-2 text-xs font-medium text-[#2d2419] transition hover:bg-white/85"
                 @click="close"
               >
                 关闭
-              </button>
-            </div>
-            <div class="grid gap-0 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
-              <div class="bg-black/30 p-3 sm:p-4">
-                <div class="flex min-h-[52vh] items-center justify-center rounded-2xl bg-black/20 p-2">
+                </button>
+              </div>
+            <div class="p-4 sm:p-5">
+              <div class="flex justify-center">
+                <div
+                  class="flex max-h-[70vh] items-center justify-center rounded-[1.5rem] border border-white/40 bg-[#201914]/10 p-3"
+                  style="max-width: min(88vw, 920px)"
+                >
                   <img
                     v-if="item?.mediaUrl"
                     :src="item.mediaUrl"
                     :alt="item?.description || '作品图片'"
-                    class="max-h-[72vh] w-full rounded-2xl object-contain"
+                    class="max-h-[66vh] w-auto max-w-full rounded-[1.25rem] object-contain shadow-[0_16px_40px_rgba(21,16,11,0.18)]"
                   />
-                  <div v-else class="text-sm text-slate-400">暂无作品图片</div>
+                  <div v-else class="text-sm text-[#6b5a49]">暂无作品图片</div>
                 </div>
               </div>
-              <div class="border-t border-white/10 bg-slate-950/50 p-4 lg:border-l lg:border-t-0">
-                <p class="text-sm font-medium text-cyan-200">简介</p>
-                <p class="mt-3 whitespace-pre-line text-sm leading-7 text-slate-200">
-                  {{ item?.description || '暂无简介' }}
-                </p>
+              <div class="mt-4 rounded-[1.2rem] border border-white/40 bg-white/35 px-4 py-3 text-sm leading-7 text-[#3b3025]">
+                {{ item?.description || '暂无简介' }}
+              </div>
+              <div class="mt-3 text-center text-xs leading-6 text-[#6d5a47]">
+                点击背景空白处或按 `Esc` 返回
               </div>
             </div>
           </div>
